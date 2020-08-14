@@ -26,8 +26,16 @@ def rename(directory, old, new):
                 continue
             print(file)
             full_old_path = os.path.join(root, file)
+            with open(full_old_path, 'r',  encoding='utf-8') as f:
+                text = f.read().replace(old, new)
+
+            with open(full_new_path, 'w', encoding='utf-8') as f:
+                f.write(text)
+
             full_new_path = os.path.join(root, file.replace(old, new))
             os.rename(full_old_path, full_new_path)
+
+
 
 
 def main():
