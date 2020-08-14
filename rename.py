@@ -2,7 +2,7 @@ import argparse
 import os
 
 DEFAULT_NAME = 'django_project'
-BLACKLIST_DIRS = ['.git', 'migrations', '__pycache__']
+BLACKLIST_DIRS = ['.git', 'migrations', '__pycache__', '.idea']
 BLACKLIST_FILES = ['.DS_Store', 'db.sqlite3']
 
 THIS_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), '..'))
@@ -55,4 +55,4 @@ def main():
                         dest='directory')
 
 
-rename(THIS_DIR, 'django_project', 'test_123')
+rename(THIS_DIR, 'test_123', 'django_project')
