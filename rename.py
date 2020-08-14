@@ -35,7 +35,7 @@ def rename(directory, old, new):
             full_new_path = os.path.join(root, file.replace(old, new))
             os.rename(full_old_path, full_new_path)
 
-
+        os.rename(root, root.replace(old, new))
 
 
 def main():
