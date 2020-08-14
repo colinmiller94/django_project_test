@@ -29,6 +29,7 @@ def rename(directory, old, new):
         for file in files:
             if skip(file, BLACKLIST_FILES):
                 continue
+            print(file)
             full_old_path = os.path.join(root, file)
             full_new_path = os.path.join(root, file.replace(old,new))
             os.rename(full_old_path,full_new_path)
@@ -54,4 +55,4 @@ def main():
                         dest='directory')
 
 
-rename(THIS_DIR, '', '')
+rename(THIS_DIR, 'django_project', 'test_123')
