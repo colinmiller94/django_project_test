@@ -14,12 +14,7 @@ def skip(string, skip_list):
     return sum([s in string for s in skip_list])
 
 
-
-
-
 def rename(directory, old, new):
-
-
     for root, dirs, files in os.walk(directory, topdown=False):
         if skip(root, BLACKLIST_DIRS):
             continue
@@ -31,11 +26,8 @@ def rename(directory, old, new):
                 continue
             print(file)
             full_old_path = os.path.join(root, file)
-            full_new_path = os.path.join(root, file.replace(old,new))
-            os.rename(full_old_path,full_new_path)
-
-
-
+            full_new_path = os.path.join(root, file.replace(old, new))
+            os.rename(full_old_path, full_new_path)
 
 
 def main():
