@@ -33,7 +33,11 @@ def rename(directory, old, new):
             with open(full_new_path, 'w+', encoding='utf-8') as f:
                 f.write(text)
 
-        os.rename(root, root.replace(old, new))
+        # only alter tail of root path
+        head, tail = os.path.split(root)
+        new_root = os.path.join(head, tail.replace(old, new))
+        os.rename(root, new_root)
+
 
 
 def main():
@@ -53,4 +57,4 @@ def main():
                         dest='directory')
 
 
-rename(THIS_DIR, 'django_project', 'django_project')
+rename(THIS_DIR, 'django_project', 'test123')
